@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Modul4HW3.Entities;
-using Modul4HW3.Configurations;
+using Modul4HW3.DataAccess.Configurations;
 
 namespace Modul4HW3
 {
     public class ApplicationContext : DbContext
     {
-        public ApplicationContext(DbContextOptions<ApplicationContext> options)
-            : base(options)
+        public ApplicationContext(/*DbContextOptions<ApplicationContext> options*/)
+            /*: base(options)*/
         {
             Database.EnsureCreated();
         }
@@ -25,6 +25,11 @@ namespace Modul4HW3
             modelBuilder.ApplyConfiguration(new OfficeConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new TitleConfiguration());
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server = localhost,1433; Database = textdb; User = user; Password = 123456;");
         }
     }
 }

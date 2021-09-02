@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Modul4HW3.Entities;
 
-namespace Modul4HW3.Configurations
+namespace Modul4HW3.DataAccess.Configurations
 {
     public class TitleConfiguration : IEntityTypeConfiguration<Title>
     {
