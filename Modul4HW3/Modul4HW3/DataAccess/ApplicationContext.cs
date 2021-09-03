@@ -6,8 +6,8 @@ namespace Modul4HW3
 {
     public class ApplicationContext : DbContext
     {
-        public ApplicationContext(/*DbContextOptions<ApplicationContext> options*/)
-            /*: base(options)*/
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+            : base(options)
         {
             Database.EnsureCreated();
         }
@@ -29,7 +29,7 @@ namespace Modul4HW3
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = localhost,1433; Database = textdb; User = user; Password = 123456;");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=HW4DB;Integrated Security=SSPI");
         }
     }
 }
