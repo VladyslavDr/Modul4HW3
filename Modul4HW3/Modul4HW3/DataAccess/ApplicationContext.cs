@@ -9,7 +9,9 @@ namespace Modul4HW3
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+            // так делать в прод низя!!
+            // Database.EnsureDeleted();
+            // Database.EnsureCreated();
         }
 
         public DbSet<Employee> Employers { get; set; }

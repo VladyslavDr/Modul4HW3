@@ -27,6 +27,16 @@ namespace Modul4HW3.DataAccess.Configurations
                 .WithMany(p => p.Employes)
                 .HasForeignKey(d => d.TitleId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.HasData(new Employee()
+            {
+                EmployeeId = 1,
+                FirstName = ",dw;l",
+                LastName = "dsa",
+                DataOfBirth = new DateTime(1998, 10, 5, 5, 5, 5),
+                HiredData = new DateTime(2005, 2, 5, 0, 0, 0),
+                OfficeId = 1,
+                TitleId = 1
+            });
         }
     }
 }
